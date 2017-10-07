@@ -25,7 +25,7 @@ static int count;
 // SETUP
 void setup() {
   size(800, 600);
-  frameRate(0100);
+  frameRate(FRAMERATE3DIAS);
   background(250);
   ellipseMode(CENTER);
   stroke(0); //cor caule
@@ -51,6 +51,6 @@ void draw() {
           ellipse(point.x, point.y, folhax/FATORVELOCIDADE, folhay/FATORVELOCIDADE); //tamanho folhas
           stroke(0); //cor galhos
           flowerPositions.remove(0);
-          delay(18000/flowerPositions.size());
+          delay(TEMPO3HORAS/flowerPositions.size());
        }
 }
