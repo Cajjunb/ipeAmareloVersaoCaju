@@ -8,7 +8,7 @@ import java.util.ArrayList;
 int contador2 = 0;
 final short NUM = 10000;
 final float LIMITEVEL = 0.125;
-final PVector LUZSOL = new PVector(0,-0.0125/FATORVELOCIDADE);
+final PVector LUZSOL = new PVector(0,-0.0225);
 PVector[] vectors = new PVector[NUM];
 
 
@@ -62,10 +62,6 @@ class pathfinder {
             velocity.mult(1); //altura caule
             velocity.add(bump);
             velocity.mult(random(8/FATORVELOCIDADE, 16/FATORVELOCIDADE));
-            if( velocity.x*velocity.x < LIMITEVEL*LIMITEVEL)
-                velocity.x = (velocity.x> 0)? LIMITEVEL:(-LIMITEVEL);
-            if( velocity.y*velocity.y < LIMITEVEL*LIMITEVEL)
-                velocity.y = (velocity.y> 0)? LIMITEVEL:(-1.125*LIMITEVEL);
             print("\tVelocity =("+velocity.x+","+velocity.y+")\n");
             location.add(velocity);
             resultado = true;
