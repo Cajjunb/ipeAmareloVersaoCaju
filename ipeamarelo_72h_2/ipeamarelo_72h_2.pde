@@ -9,7 +9,9 @@ final float FATORVELOCIDADE = 5.5;
 final float FRAMERATE3DIAS = 0.0016975308641975;
 final float FRAMERATE2DIAS = 0.0025462962962963;
 final float FRAMERATE1DIAS = 0.0050925925925926;
-final int TEMPO3HORAS = 180000;
+final float FRAMERATE8HORAS = 0.0050925925925926;
+final int TEMPO3HORAS = 10800000;
+final int TEMPO30MIN = 1800000;
 
 
 boolean active = false;
@@ -25,7 +27,7 @@ static int count;
 // SETUP
 void setup() {
   size(800, 600);
-  frameRate(FRAMERATE3DIAS);
+  frameRate(FRAMERATE8HORAS);
   background(250);
   ellipseMode(CENTER);
   stroke(0); //cor caule
@@ -51,6 +53,6 @@ void draw() {
           ellipse(point.x, point.y, folhax/FATORVELOCIDADE, folhay/FATORVELOCIDADE); //tamanho folhas
           stroke(0); //cor galhos
           flowerPositions.remove(0);
-          delay(TEMPO3HORAS/flowerPositions.size());
+          delay(TEMPO30MIN/flowerPositions.size());
        }
 }
