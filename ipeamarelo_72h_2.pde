@@ -1,6 +1,6 @@
-// 72 h vida 4 de morte 590 3240
-final float INTERVALO = 0.5;
-final float FATORVELOCIDADE = 3240;
+// 72 h vida 4 de morte 590 3240 259200
+final float INTERVALO = 0.1;
+final float FATORVELOCIDADE = 5;
 
 
 boolean active = false;
