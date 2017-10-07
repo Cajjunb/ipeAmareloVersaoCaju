@@ -47,32 +47,32 @@ class pathfinder {
       // senao termina e adiciona o contador2++
       boolean resultado = false;
       if(location.x > -10 & location.x < width + 10 & location.y > -10 & location.y < height + 10) {
-        lastLocation.set(location.x, location.y);
+          lastLocation.set(location.x, location.y);
           if (diameter > 0.1) {
-            count ++;
-            PVector bump = new PVector(random(-1/FATORVELOCIDADE, 1/FATORVELOCIDADE), random(-1/FATORVELOCIDADE, 1/FATORVELOCIDADE));
-            bump.add(LUZSOL);
-            velocity.normalize();
-            bump.mult(0.80*FATORVELOCIDADE);
-            velocity.mult(1); //altura caule
-            velocity.add(bump);
-            velocity.mult(random(8/FATORVELOCIDADE, 16/FATORVELOCIDADE));
-            if( velocity.x*velocity.x < LIMITEVEL*LIMITEVEL)
-                velocity.x = (velocity.x> 0)? LIMITEVEL:(-LIMITEVEL);
-            if( velocity.y*velocity.y < LIMITEVEL*LIMITEVEL)
-                velocity.y = (velocity.y> 0)? LIMITEVEL:(-LIMITEVEL);
-            //print("\tVelocity =("+velocity.x+","+velocity.y+")\n");
-            location.add(velocity);
-            resultado = true;
-        } else {
-            isFinished = true;
-            contador2 = contador2 + 1;
-            noStroke();
-            fill (amarelo);
-            ellipse(location.x, location.y, folhax/FATORVELOCIDADE, folhay/FATORVELOCIDADE); //tamanho folhas
-            stroke(0); //cor galhos
-            resultado = false;
-        }
+              count ++;
+              PVector bump = new PVector(random(-1/FATORVELOCIDADE, 1/FATORVELOCIDADE), random(-1/FATORVELOCIDADE, 1/FATORVELOCIDADE));
+              bump.add(LUZSOL);
+              velocity.normalize();
+              bump.mult(0.80*FATORVELOCIDADE);
+              velocity.mult(1); //altura caule
+              velocity.add(bump);
+              velocity.mult(random(8/FATORVELOCIDADE, 16/FATORVELOCIDADE));
+              if( velocity.x*velocity.x < LIMITEVEL*LIMITEVEL)
+                  velocity.x = (velocity.x> 0)? LIMITEVEL:(-LIMITEVEL);
+              if( velocity.y*velocity.y < LIMITEVEL*LIMITEVEL)
+                  velocity.y = (velocity.y> 0)? LIMITEVEL:(-LIMITEVEL);
+              //print("\tVelocity =("+velocity.x+","+velocity.y+")\n");
+              location.add(velocity);
+              resultado = true;
+          } else {
+              isFinished = true;
+              contador2 = contador2 + 1;
+              noStroke();
+              fill (amarelo);
+              ellipse(location.x, location.y, folhax/FATORVELOCIDADE, folhay/FATORVELOCIDADE); //tamanho folhas
+              stroke(0); //cor galhos
+              resultado = false;
+          }
       }
       return resultado;
     }
@@ -93,30 +93,24 @@ boolean arvore() {
     // Chama a funcao update caso boolean responda com false eh hora de construir uma folha  e caso seja hora de construir uma folha tira se do array.
     if((frameCount/frameRate) >= (numEstado)*(INTERVALO/FATORVELOCIDADE)){
         for (int i = pathArray.size()-1; i >= 0 ; i--) {
-          //PVector loc = paths[i].location;
-          //PVector lastLoc = paths[i].lastLocation;
           strokeWeight(pathArray.get(i).diameter);
           PVector loc2 = pathArray.get(i).location;
           PVector lastLoc2 = pathArray.get(i).lastLocation;
           line(lastLoc2.x, lastLoc2.y, loc2.x, loc2.y);
-          //if(paths[i].update()){
           if(pathArray.get(i).update()){
             if (random(0, 1) < 0.1/FATORVELOCIDADE) { // controla  a quantidade de flores
-                  //paths = (pathfinder[]) append(paths, new pathfinder(paths[i]));
                   pathArray.add(new pathfinder(pathArray.get(i)));
               }
           }
           else{
               flowerPositions.add(pathArray.get(i));
               pathArray.remove(i);
-              //paths = (pathfinder[])shorten(paths);
           }
           if ( i > pathArray.size()) {
               print("stop");
           } 
        }
       numEstado++;
-      //println("foi o tempo " + contador+"\t num Estado ="+numEstado+"\tsegundos = "+(frameCount/frameRate)+" estado = "+(numEstado)*INTERVALO/FATORVELOCIDADE+"\n");   
       result = true;
     }
     return result;    

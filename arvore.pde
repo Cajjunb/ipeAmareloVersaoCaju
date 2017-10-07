@@ -66,7 +66,6 @@ class pathfinder {
             location.add(velocity);
             resultado = true;
         } else {
-          //if(!isFinished) {
             isFinished = true;
             contador2 = contador2 + 1;
             noStroke();
@@ -74,8 +73,6 @@ class pathfinder {
             ellipse(location.x, location.y, folhax/FATORVELOCIDADE, folhay/FATORVELOCIDADE); //tamanho folhas
             stroke(0); //cor galhos
             resultado = false;
-           //vectors[contador2] = new PVector(location.x, location.y, 7);
-          //}
         }
       }
       return resultado;
@@ -85,7 +82,6 @@ class pathfinder {
 
 
 //ANEXO  PARA O METODO O ARVORE
-pathfinder[] paths;
 ArrayList<pathfinder> pathArray;
 
 boolean arvore() {
@@ -104,10 +100,10 @@ boolean arvore() {
           line(lastLoc2.x, lastLoc2.y, loc2.x, loc2.y);
           //if(paths[i].update()){
           if(pathArray.get(i).update()){
-            if (random(0, 1) < 0.1/FATORVELOCIDADE) { // controla  a quantidade de flores
+            if (random(0, 1) < 0.01/FATORVELOCIDADE) { // controla  a quantidade de flores
                   //paths = (pathfinder[]) append(paths, new pathfinder(paths[i]));
                   pathArray.add(new pathfinder(pathArray.get(i)));
-              }
+              } //<>//
           }
           else{
               pathArray.remove(i);

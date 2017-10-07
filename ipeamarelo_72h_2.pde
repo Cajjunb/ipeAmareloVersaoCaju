@@ -24,25 +24,19 @@ void setup() {
   num = 2;
   count = 0;
   pathArray = new ArrayList<pathfinder>(num);
-  paths = new pathfinder[num];
-  for(int i = 0; i < num; i++) paths[i] = new pathfinder();
   for(int i = 0; i < num; i++) pathArray.add(new pathfinder());
   contador=0;
 }
 
 void draw() {
   if (contador < 80*FATORVELOCIDADE) {
-    //delay(2925000); ///Valor do tempo de duração em milissegundos dividio por 80
     //Caso seja o a funcao arvore resulta true ocorreu uma reproducao de caules 
     if(arvore())
         contador = contador + 1 ;
-
   }
  else {
-  //delay(1080000);
    morte();
    println("parou");
- //}
  }
 
 }
