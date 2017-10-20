@@ -9,7 +9,7 @@ final float FATORVELOCIDADE = 5.5;
 final float FRAMERATE3DIAS = 0.0016975308641975;
 final float FRAMERATE2DIAS = 0.0025462962962963;
 final float FRAMERATE1DIAS = 0.0050925925925926;
-final float FRAMERATE8HORAS = 0.0050925925925926;
+final float FRAMERATE8HORAS = 0.0152777778;
 final int TEMPO3HORAS = 10800000;
 final int TEMPO30MIN = 1800000;
 
@@ -27,21 +27,28 @@ static int count;
 // SETUP
 void setup() {
   size(800, 600);
-  frameRate(FRAMERATE8HORAS);
-  background(250);
+  frameRate(10);
   ellipseMode(CENTER);
   stroke(0); //cor caule
   smooth();
+  iniciaIpe();
+  
+}
+
+void iniciaIpe(){
+  background(250);
   num = 2;
   count = 0;
   pathArray = new ArrayList<pathfinder>(num);
   paths = new pathfinder[num];
-  for(int i = 0; i < num; i++) paths[i] = new pathfinder();
+  //for(int i = 0; i < num; i++) paths[i] = new pathfinder();
   for(int i = 0; i < num; i++) pathArray.add(new pathfinder());
   contador=0;
 }
 
 void draw() {
+    // Caso o contador seja menor ele vai fazer o funcionamento de crescimento do ipe
+    // caso contrario ele mata uma flor de cade vez, e quando flowerPositions.size() == 0 hora de recomecar
     if (contador < 80*FATORVELOCIDADE) {
         if(arvore())
             contador = contador + 1 ;
@@ -53,6 +60,10 @@ void draw() {
           ellipse(point.x, point.y, folhax/FATORVELOCIDADE, folhay/FATORVELOCIDADE); //tamanho folhas
           stroke(0); //cor galhos
           flowerPositions.remove(0);
-          delay(TEMPO30MIN/flowerPositions.size());
+          if(flowerPositions.size() == 0)
+              iniciaIpe();
+          else
+              delay(1/flowerPositions.size());
+          
        }
 }
