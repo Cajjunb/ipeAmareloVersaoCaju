@@ -1,25 +1,25 @@
-Digital Ipê Tree Simulation
-Description
+# Digital Ipê Tree Simulation
+
+## Description
 The Digital Ipê Tree Simulation project aims to recreate the beauty and essence of an Ipê tree in a digital format. The simulation uses graphical elements and animations to mimic the appearance and behavior of an Ipê tree, providing an immersive experience.
 
-Features
-Interactive tree growth
-Colorful blossoms
-Wind simulation
-Customization options
-Requirements
-Processing IDE
-Installation
-bash
-Copy code
-git clone <repository-url>
-Usage
-Open the project in the Processing IDE.
-Press the "Run" button or use the shortcut (Ctrl+R / Cmd+R) to compile and execute the simulation.
-Interact with the simulation using the mouse or keyboard controls as specified in the interface.
-Customize the parameters to modify the appearance and behavior of the tree.
-Credits
-This project was created by [Your Name].
+## Features
+- Interactive tree growth
+- Colorful blossoms
+- Sun influence simulation
+- Drought simulation (soon)
 
-License
-This project is licensed under the MIT License.
+## Requirements
+- Processing IDE
+
+## Installation1
+
+## Usage
+1. Open the example file, situated in the folder versão /versaoJavascript in a web browser and enjoy.
+2. Customize the parameters to modify the appearance and behavior of the tree.
+
+## Credits
+This project was created by Leandro Ramalho Motta Ferreira (Caju) .
+
+## License
+This project is licensed under the [MIT License](LICENSE).
